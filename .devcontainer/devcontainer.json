@@ -1,38 +1,19 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+// README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
 {
-	"name": "Ubuntu",
+	"name": "Node.js",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
 	"waitFor": "updateContentCommand",
 	"updateContentCommand": "npm install",
-	// Features to add to the dev container. More info: https://containers.dev/features.
-	// "features": {},
-	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [
-		3000
-	],
-	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "npm run dev",
-	// Configure tool-specific properties.
-	// "customizations": {},
-	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	// "remoteUser": "root"
+	"postAttachCommand": "npm run dev",
 	"portsAttributes": {
 		"3000": {
 			"label": "Application",
 			"onAutoForward": "openPreview"
 		}
 	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"streetsidesoftware.code-spell-checker",
-				"dbaeumer.vscode-eslint",
-				"esbenp.prettier-vscode",
-				"DavidAnson.vscode-markdownlint",
-				"ms-vscode-remote.remote-containers"
-			]
-		}
-	}
+	"forwardPorts": [
+		3000
+	]
 }
